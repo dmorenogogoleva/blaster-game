@@ -29,22 +29,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let scoreLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
     let livesLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
     var levelNumber = 0
-    var livesNumber = 50
+    var livesNumber = 3
     
-    enum gameState {
-        case preGame
-        case inGame
-        case afterGame
-        
-    }
-    
-    var currentState = gameState.inGame
     
     let kLeftArrowKeyCode: UInt16 = 123
     let kRightArrowKeyCode: UInt16 = 124
     let kDownArrowKeyCode: UInt16 = 125
     let kUpArrowKeyCode: UInt16 = 126
-    let kSpaceKeyCode: UInt16 = 49
     
     
     func random() -> CGFloat {
@@ -104,7 +95,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         livesLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
         livesLabel.position = CGPoint(x: 1624, y: 1664)
         livesLabel.zPosition = 100
-        self.addChild(livesLabel)
+        self.addChild(scoreLabel)
     }
     
     func fireBullet() {
@@ -163,38 +154,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        var body1 = SKPhysicsBody()
-        var body2 = SKPhysicsBody()
-        
-        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
-            body1 = contact.bodyA
-            body2 = contact.bodyB
-        } else {
-            body1 = contact.bodyB
-            body2 = contact.bodyA
-        }
-        
-        if body1.categoryBitMask == PhysicsCategories.Player && body2.categoryBitMask == PhysicsCategories.Enemy{
-            if body1.node != nil {
-                spawnExplosion(spawnPosition: body1.node!.position)
-            }
-            
-            if body2.node != nil {
-                spawnExplosion(spawnPosition: body2.node!.position)
-            }
-            gameOver()
-        }
-        
-        
-        if body1.categoryBitMask == PhysicsCategories.Bullet && body2.categoryBitMask == PhysicsCategories.Enemy && (body2.node?.position.y)! < self.size.height {
-            addScore()
-            if body2.node != nil {
-                spawnExplosion(spawnPosition: body2.node!.position)
-            }
-            
-            body1.node?.removeFromParent()
-            body2.node?.removeFromParent()
-        }
+//        var body1 = SKPhysicsBody()
+//        var body2 = SKPhysicsBody()
+//
+//        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+//            body1 = contact.bodyA
+//            body2 = contact.bodyB
+//        } else {
+//            body1 = contact.bodyB
+//            body2 = contact.bodyA
+//        }
+//
+//        if body1.categoryBitMask == PhysicsCategories.Player && body2.categoryBitMask == PhysicsCategories.Enemy{
+//            if body1.node != nil {
+//                spawnExplosion(spawnPosition: body1.node!.position)
+//            }
+//
+//            if body2.node != nil {
+//                spawnExplosion(spawnPosition: body2.node!.position)
+//            }
+//        }
+//
+//
+//        if body1.categoryBitMask == PhysicsCategories.Bullet && body2.categoryBitMask == PhysicsCategories.Enemy && (body2.node?.position.y)! < self.size.height {
+//
+//            if body2.node != nil {
+//                spawnExplosion(spawnPosition: body2.node!.position)
+//            }
+//
+//            body1.node?.removeFromParent()
+//            body2.node?.removeFromParent()
+//        }
     }
     
     
@@ -232,32 +222,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         livesLabel.run(scaleSequence)
         
         if livesNumber == 0 {
-            gameOver()
+            print("game over")
+            // gameOver()
         }
-    }
-    
-    func gameOver() {
-        currentState = gameState.afterGame
-        
-        self.removeAllActions()
-        self.enumerateChildNodes(withName: "Bullet") { bullet, stop in
-            bullet.removeAllActions()
-        }
-        self.enumerateChildNodes(withName: "Enemy") { enemy, stop in
-            enemy.removeAllActions()
-        }
-        
-        let changeSceneAction = SKAction.run(gameOverScene)
-        let waitChangeScene = SKAction.wait(forDuration: 1)
-        let changeSceneSequence = SKAction.sequence([waitChangeScene, changeSceneAction])
-        self.run(changeSceneSequence)
-    }
-    
-    func gameOverScene() {
-        let sceneMove = GameOverScene(size: self.size)
-        sceneMove.scaleMode = self.scaleMode
-        let transition = SKTransition.fade(withDuration: 0.5)
-        self.view!.presentScene(sceneMove, transition: transition)
     }
     
     func startLevel() {
@@ -301,9 +268,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case kDownArrowKeyCode:
             break
         case kUpArrowKeyCode:
-            break
-        case kSpaceKeyCode:
-            fireBullet()
             break
         default:
             print("other")

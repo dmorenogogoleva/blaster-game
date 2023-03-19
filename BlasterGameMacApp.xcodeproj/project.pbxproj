@@ -10,10 +10,13 @@
 		56408E7E29C77263000AC3A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56408E7D29C77263000AC3A9 /* AppDelegate.swift */; };
 		56408E8029C77263000AC3A9 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 56408E7F29C77263000AC3A9 /* GameScene.sks */; };
 		56408E8229C77263000AC3A9 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 56408E8129C77263000AC3A9 /* Actions.sks */; };
-		56408E8429C77263000AC3A9 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56408E8329C77263000AC3A9 /* GameScene.swift */; };
 		56408E8629C77263000AC3A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56408E8529C77263000AC3A9 /* ViewController.swift */; };
 		56408E8829C77264000AC3A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56408E8729C77264000AC3A9 /* Assets.xcassets */; };
 		56408E8B29C77264000AC3A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56408E8929C77264000AC3A9 /* Main.storyboard */; };
+		56408E9329C774A4000AC3A9 /* big-laser.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56408E9229C774A4000AC3A9 /* big-laser.mp3 */; };
+		56408E9529C774CF000AC3A9 /* explosionSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 56408E9429C774CF000AC3A9 /* explosionSound.wav */; };
+		56B74E8F29C78FF100474240 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B74E8E29C78FF100474240 /* GameScene.swift */; };
+		56B74E9129C7925C00474240 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B74E9029C7925C00474240 /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +24,14 @@
 		56408E7D29C77263000AC3A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56408E7F29C77263000AC3A9 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		56408E8129C77263000AC3A9 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		56408E8329C77263000AC3A9 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		56408E8529C77263000AC3A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		56408E8729C77264000AC3A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56408E8A29C77264000AC3A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		56408E8C29C77264000AC3A9 /* BlasterGameMacApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BlasterGameMacApp.entitlements; sourceTree = "<group>"; };
+		56408E9229C774A4000AC3A9 /* big-laser.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "big-laser.mp3"; sourceTree = "<group>"; };
+		56408E9429C774CF000AC3A9 /* explosionSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosionSound.wav; sourceTree = "<group>"; };
+		56B74E8E29C78FF100474240 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		56B74E9029C7925C00474240 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +67,14 @@
 				56408E7D29C77263000AC3A9 /* AppDelegate.swift */,
 				56408E7F29C77263000AC3A9 /* GameScene.sks */,
 				56408E8129C77263000AC3A9 /* Actions.sks */,
-				56408E8329C77263000AC3A9 /* GameScene.swift */,
 				56408E8529C77263000AC3A9 /* ViewController.swift */,
 				56408E8729C77264000AC3A9 /* Assets.xcassets */,
 				56408E8929C77264000AC3A9 /* Main.storyboard */,
+				56408E9229C774A4000AC3A9 /* big-laser.mp3 */,
+				56408E9429C774CF000AC3A9 /* explosionSound.wav */,
 				56408E8C29C77264000AC3A9 /* BlasterGameMacApp.entitlements */,
+				56B74E8E29C78FF100474240 /* GameScene.swift */,
+				56B74E9029C7925C00474240 /* GameOverScene.swift */,
 			);
 			path = BlasterGameMacApp;
 			sourceTree = "<group>";
@@ -128,7 +137,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56408E9529C774CF000AC3A9 /* explosionSound.wav in Resources */,
 				56408E8029C77263000AC3A9 /* GameScene.sks in Resources */,
+				56408E9329C774A4000AC3A9 /* big-laser.mp3 in Resources */,
 				56408E8829C77264000AC3A9 /* Assets.xcassets in Resources */,
 				56408E8229C77263000AC3A9 /* Actions.sks in Resources */,
 				56408E8B29C77264000AC3A9 /* Main.storyboard in Resources */,
@@ -142,8 +153,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56B74E8F29C78FF100474240 /* GameScene.swift in Sources */,
 				56408E8629C77263000AC3A9 /* ViewController.swift in Sources */,
-				56408E8429C77263000AC3A9 /* GameScene.swift in Sources */,
+				56B74E9129C7925C00474240 /* GameOverScene.swift in Sources */,
 				56408E7E29C77263000AC3A9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
